@@ -1,0 +1,21 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\main_menu_control.cs">
+    <Files>
+      <File FileName="Assets\scripts\camera_control.cs" Line="34" Column="4" />
+      <File FileName="Assets\scripts\menu_control.cs" Line="51" Column="1" />
+      <File FileName="Assets\scripts\destination_control.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\wild_spheres_control.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\main_menu_control.cs" Line="51" Column="4" />
+      <File FileName="Assets\scripts\destination_minus_control.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\onStart.cs" Line="31" Column="23" />
+      <File FileName="Assets\scripts\scenes_intermediate.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\save_record.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\add_life_text_control.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
