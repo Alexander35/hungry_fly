@@ -1,17 +1,20 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\main_menu_control.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\add_life_text_control.cs">
     <Files>
-      <File FileName="Assets\scripts\camera_control.cs" Line="34" Column="4" />
-      <File FileName="Assets\scripts\menu_control.cs" Line="51" Column="1" />
-      <File FileName="Assets\scripts\destination_control.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\light_controll.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\onStart.cs" Line="68" Column="50" />
+      <File FileName="Assets\scripts\camera_control.cs" Line="28" Column="15" />
+      <File FileName="Assets\scripts\menu_control.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\destination_control.cs" Line="10" Column="61" />
       <File FileName="Assets\scripts\wild_spheres_control.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\main_menu_control.cs" Line="51" Column="4" />
-      <File FileName="Assets\scripts\destination_minus_control.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\onStart.cs" Line="31" Column="23" />
+      <File FileName="Assets\scripts\main_menu_control.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\destination_minus_control.cs" Line="17" Column="63" />
       <File FileName="Assets\scripts\scenes_intermediate.cs" Line="1" Column="1" />
       <File FileName="Assets\scripts\save_record.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\add_life_text_control.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\add_life_text_control.cs" Line="5" Column="4" />
+      <File FileName="Assets\scripts\destination_plus_control.cs" Line="1" Column="1" />
+      <File FileName="Assets\UIBars\Scripts\CriteriaRule.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

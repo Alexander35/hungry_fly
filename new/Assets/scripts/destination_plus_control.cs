@@ -21,8 +21,8 @@ public class destination_plus_control : MonoBehaviour {
 	void FixedUpdate()
 	{
 		destination_rb.AddTorque (0.1f,0.1f,0.1f);
-		destination_rb.AddForce (Random.onUnitSphere * 10);
-		if (Vector3.Distance (transform.position, player_sp.transform.position) > 100)
-			transform.position = player_sp.transform.position + Random.onUnitSphere * 90;
+		destination_rb.AddForce (Random.onUnitSphere * 50);
+		if (Vector3.Distance (transform.position, player_sp.transform.position) > 500)
+			transform.position = player_sp.transform.position + Random.onUnitSphere * 150;
 	}
 }

@@ -22,8 +22,8 @@ public class destination_minus_control : MonoBehaviour {
 	void FixedUpdate()
 	{
 		destination_rb.AddTorque (0.2f,0.1f,0.1f);
-		destination_rb.AddForce (Random.onUnitSphere * 15);
-		if (Vector3.Distance (transform.position, player_sp.transform.position) > 100)
-			transform.position = player_sp.transform.position + Random.onUnitSphere * 70;
+		destination_rb.AddForce (Random.onUnitSphere * 90);
+		if (Vector3.Distance (transform.position, player_sp.transform.position) > 500)
+			transform.position = player_sp.transform.position + Random.onUnitSphere * 150;
 	}
 }

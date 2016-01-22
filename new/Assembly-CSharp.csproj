@@ -45,6 +45,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\UIBars\Scripts\ControlBar.cs" />
+     <Compile Include="Assets\UIBars\Scripts\CriteriaRule.cs" />
+     <Compile Include="Assets\UIBars\Scripts\UIBarScript.cs" />
+     <Compile Include="Assets\UIBars\Scripts\UpdateAnimationRule.cs" />
      <Compile Include="Assets\scripts\Sharing_script.cs" />
      <Compile Include="Assets\scripts\add_life_text_control.cs" />
      <Compile Include="Assets\scripts\ambient_light.cs" />

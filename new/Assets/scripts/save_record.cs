@@ -33,7 +33,8 @@ public class save_record : MonoBehaviour {
 			StreamReader sr = new StreamReader( file );
 			
 			string str = null;
-			str = sr.ReadLine ();
+			//str = sr.ReadLine ();
+			str = sr.ReadToEnd();
 			
 			sr.Close();
 			file.Close();
@@ -42,7 +43,8 @@ public class save_record : MonoBehaviour {
 		}
 		else
 		{
-			return null;
+			writeStringToFile("0\n0.35\ntrue\n0",filename);
+			return "0\n0.35\ntrue\n0";
 		}
 		#else
 		return null;
@@ -72,54 +74,33 @@ public class save_record : MonoBehaviour {
 			return Path.Combine (path, filename);
 		}
 	}
-
-
-	void Start ()
+	public static void Read()
 	{
-		//Save (23f);
-		//Debug.Log ("we are here!");
-		//Create data instance
-		/*data = new SaveData (fileName);
-		try{
-			data = SaveData.Load(Application.streamingAssetsPath+"\\"+fileName+".uml");
-		}
-		catch
-		{
-			data["Player"] = "Player";
-			data ["BestScore"] = 23;
-			data.Save ();
-		}*/
+		string Str="";
+		Str = readStringFromFile (fileName);
+		char delimiter = '\n';
+		string[] substrings = Str.Split(delimiter);
+		int score = 0;
+		int.TryParse( substrings[0],out score);
+		scenes_intermediate.setScoreBest (score);
+		float cs = 0;
+		float.TryParse (substrings[1],out cs);
+		scenes_intermediate.setConSens (cs);
+		bool sound = true;
+		bool.TryParse (substrings[2],out sound);
+		scenes_intermediate.setSound (sound);
+		int lang = 0;
+		int.TryParse (substrings [3], out lang);
+		scenes_intermediate.setLang (lang);
 	}
-	public static int Save(int Score)
+
+	public static void Save()
 	{
-		string Record="";
-		Record= readStringFromFile (fileName);
-		int Recordint = 0;
-		int.TryParse (Record, out Recordint);
-		if (Recordint < Score) {
-			writeStringToFile (Mathf.RoundToInt (Score).ToString (), fileName);
-			Recordint=Score;
-		}
-			//Record = SaveScore (Score);
-		return Recordint;
+			writeStringToFile (scenes_intermediate.getScoreBest().ToString()+
+		                   		"\n"+scenes_intermediate.getConSens().ToString()+
+		                   			"\n"+scenes_intermediate.getSound().ToString()+
+		                   				"\n"+scenes_intermediate.getLang().ToString(),
+		                   					fileName);
 	}
-	/*static float SaveScore(float ScoreCurr)
-	{
-		//Add keys with significant names and values
-		//data["Player"] = "Player";
-		//data ["BestScore"] = 23;
-		//data.Save ();
-		data = SaveData.Load(Application.streamingAssetsPath+"\\"+fileName+".uml");
-
-		float ScoreRecord=0f; //variable for out value
-		data.TryGetValue<float> ("BestScore", out ScoreRecord);
-		if (ScoreRecord < ScoreCurr) {
-			data["BestScore"]=ScoreCurr;
-			data.Save ();
-			ScoreRecord=ScoreCurr;
-		}
-		return ScoreRecord;
-	}*/
-
 }
 

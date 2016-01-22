@@ -22,10 +22,10 @@ public class wild_spheres_control : MonoBehaviour {
 	}
 	void FixedUpdate()
 	{
-		rb.AddForce (Random.onUnitSphere*20); 
+		rb.AddForce (Random.onUnitSphere*100); 
 		rb.AddTorque (1,10,1);
-		if (Vector3.Distance (transform.position, player_sp.transform.position) > 100)
-			transform.position = player_sp.transform.position + Random.onUnitSphere * 50;
+		if (Vector3.Distance (transform.position, player_sp.transform.position) > 500)
+			transform.position = player_sp.transform.position + Random.onUnitSphere * 250;
 
 	}
 

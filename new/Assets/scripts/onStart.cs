@@ -4,6 +4,7 @@ using System.IO;
 using UnityEngine.UI;
 using UnityEngine.Advertisements;
 
+
 public class onStart : MonoBehaviour {
 	public int level=1;
 	public Text score_text; 
@@ -12,7 +13,6 @@ public class onStart : MonoBehaviour {
 	float score=0f;
 	public float time=60f;
 	public Transform wild_sphere;
-	private Vector3 destination_pos;
 	public Transform destination;
 	public Transform destination_plus;
 	public Transform destination_minus;
@@ -46,35 +46,31 @@ public class onStart : MonoBehaviour {
 
 	void set_wild_scene()
 	{
-		for (int i=0; i<20; i++) {
-			Instantiate (wild_sphere, Random.onUnitSphere * 100f, Random.rotation);
+		Vector3 destination_pos;
+		for (int i=0; i<10; i++) {
+			Instantiate (wild_sphere, Random.onUnitSphere * 150f, Random.rotation);
 		
-			destination_pos = Random.onUnitSphere * level*20;
+			destination_pos = Random.onUnitSphere *20;
 			Instantiate (destination, destination_pos, Random.rotation);
-			destination_pos = Random.onUnitSphere * level*20;
+			destination_pos = Random.onUnitSphere *20;
 			Instantiate (destination_plus, destination_pos, Random.rotation);
 		}
 	}
 	//add wild_spheres on scene when levelUP
 	public void level_up_set_wild_scene(float time_plus,float speed_plus)
 	{
+		Vector3 destination_pos;
 		level ++;
-		//if (level > 5f)
-		//	level = 5;
 
-		for (int i=0; i<3; i++) {
+		for (int i=0; i<5; i++) {
 			Instantiate (wild_sphere, (Random.onUnitSphere + transform.position) * 100f, Random.rotation);
-		
-
-			destination_pos = Random.onUnitSphere * 20*level;
+			destination_pos = Random.onUnitSphere * 50 * level;
 			Instantiate (destination, (destination_pos + transform.position), Random.rotation);
-
-			destination_pos = Random.onUnitSphere * 20*level;
-			Instantiate (destination_plus, (destination_pos + transform.position),Random.rotation);
+			destination_pos = Random.onUnitSphere * 50 * level;
+			Instantiate (destination_plus, (destination_pos + transform.position), Random.rotation);
+			destination_pos = Random.onUnitSphere * 50 * level;
+			Instantiate (destination_minus, (destination_pos + transform.position), Random.rotation);
 		}
-
-		destination_pos = Random.onUnitSphere * 20*level;
-		Instantiate (destination_minus, (destination_pos + transform.position), Random.rotation);
 		time += time_plus;
 		this.GetComponent<camera_control> ().IncreaseSpeed (speed_plus);
 	}
@@ -82,7 +78,6 @@ public class onStart : MonoBehaviour {
 	void Awake () {	
 		decrease_time ();
 		set_wild_scene ();
-		//level_up_set_wild_scene (0, 0);
 	}
 
 	void Update () {
