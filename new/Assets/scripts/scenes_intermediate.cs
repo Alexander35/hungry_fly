@@ -3,11 +3,36 @@ using System.Collections;
 
 public class scenes_intermediate : MonoBehaviour
 {
+	static int milk=0;
 	static float score=0f;
 	static float scorebest=0f;
 	static float control_sensetivity=0.35f;
-	static bool sound=true;
+	static float control_angle_sensetivity=25f;
+	static float sound=1;
 	static int language=0;
+
+
+	public static int getMilk()
+	{
+		return milk;
+	}
+	
+	public static void setMilk(int val)
+	{
+		milk = val;
+	}
+
+	public static void incMilk()
+	{
+		milk++;
+	}
+	
+	public static void decMilk()
+	{
+		milk--;
+		if (milk < 0)
+			milk = 0;
+	}
 
 	public static float getScoreBest()
 	{
@@ -30,6 +55,16 @@ public class scenes_intermediate : MonoBehaviour
 
 	}
 
+	public static float getConSensAngle()
+	{
+		return control_angle_sensetivity;
+	}
+	
+	public static void setConSensAngle(float val)
+	{
+		control_angle_sensetivity = val;
+	}
+
 	public static float getConSens()
 	{
 		return control_sensetivity;
@@ -40,12 +75,12 @@ public class scenes_intermediate : MonoBehaviour
 		control_sensetivity = val;
 	}
 
-	public static bool getSound()
+	public static float getSound()
 	{
 		return sound;
 	}
 	
-	public static void setSound(bool val)
+	public static void setSound(float val)
 	{
 		sound = val;
 	}

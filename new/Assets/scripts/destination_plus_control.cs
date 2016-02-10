@@ -6,8 +6,8 @@ public class destination_plus_control : MonoBehaviour {
 	private Rigidbody destination_rb;
 	void OnTriggerEnter (Collider other ) {
 		if (other.gameObject.CompareTag ("MainCamera")) {
-			player_sp.GetComponent<onStart> ().level_up_set_wild_scene (5f, -8f);
-			player_sp.GetComponent<add_life_text_control>().run("+5");
+			player_sp.GetComponent<onStart> ().level_up (4f, 10f,0f);
+			//add_life_text_control.run("+5");
 		}
 		Destroy(gameObject);
 	}
@@ -21,8 +21,8 @@ public class destination_plus_control : MonoBehaviour {
 	void FixedUpdate()
 	{
 		destination_rb.AddTorque (0.1f,0.1f,0.1f);
-		destination_rb.AddForce (Random.onUnitSphere * 50);
-		if (Vector3.Distance (transform.position, player_sp.transform.position) > 500)
-			transform.position = player_sp.transform.position + Random.onUnitSphere * 150;
+		destination_rb.AddForce (Random.onUnitSphere * scenes_intermediate.getScoreBest()*0.2f);
+		if (Vector3.Distance (transform.position, player_sp.transform.position) > 700)
+			transform.position = Random.insideUnitSphere * 700+ player_sp.transform.position;
 	}
 }

@@ -33,7 +33,6 @@ public class save_record : MonoBehaviour {
 			StreamReader sr = new StreamReader( file );
 			
 			string str = null;
-			//str = sr.ReadLine ();
 			str = sr.ReadToEnd();
 			
 			sr.Close();
@@ -43,8 +42,8 @@ public class save_record : MonoBehaviour {
 		}
 		else
 		{
-			writeStringToFile("0\n0.35\ntrue\n0",filename);
-			return "0\n0.35\ntrue\n0";
+			writeStringToFile("0\n15\n25\n1\n0",filename);
+			return "0\n15\n25\n1\n0";
 		}
 		#else
 		return null;
@@ -86,11 +85,13 @@ public class save_record : MonoBehaviour {
 		float cs = 0;
 		float.TryParse (substrings[1],out cs);
 		scenes_intermediate.setConSens (cs);
-		bool sound = true;
-		bool.TryParse (substrings[2],out sound);
+		float.TryParse (substrings[2],out cs);
+		scenes_intermediate.setConSensAngle (cs);
+		float sound = 1f;
+		float.TryParse (substrings[3],out sound);
 		scenes_intermediate.setSound (sound);
 		int lang = 0;
-		int.TryParse (substrings [3], out lang);
+		int.TryParse (substrings [4], out lang);
 		scenes_intermediate.setLang (lang);
 	}
 
@@ -98,9 +99,10 @@ public class save_record : MonoBehaviour {
 	{
 			writeStringToFile (scenes_intermediate.getScoreBest().ToString()+
 		                   		"\n"+scenes_intermediate.getConSens().ToString()+
-		                   			"\n"+scenes_intermediate.getSound().ToString()+
-		                   				"\n"+scenes_intermediate.getLang().ToString(),
-		                   					fileName);
+		                  			 "\n"+scenes_intermediate.getConSensAngle().ToString()+
+		                   				"\n"+scenes_intermediate.getSound().ToString()+
+		                   					"\n"+scenes_intermediate.getLang().ToString(),
+		                   						fileName);
 	}
 }
 

@@ -6,10 +6,21 @@ public class wild_spheres_control : MonoBehaviour {
 	public Transform player_sp;
 
 
-	void OnTriggerEnter (Collider other ) {
-		if(other.gameObject.CompareTag ("wild_sphere"))
-			Destroy(gameObject);
+	void OnCollisionEnter (Collision other ) {
+		if (other.gameObject.CompareTag ("wild_sphere")) {
+			player_sp.GetComponent<onStart> ().instant (transform.position);
+			//Debug.Log("C");
+			Destroy (gameObject);
+
+		} 
 	}
+
+	/*void OnTriggerEnter (Collider other ) {
+		if (other.gameObject.CompareTag ("wild_sphere")) {
+			player_sp.GetComponent<onStart> ().instant (transform.position);	
+			Destroy (gameObject);
+		} 
+	}*/
 
 	void Start () {
 		rb = GetComponent<Rigidbody>();
@@ -22,10 +33,10 @@ public class wild_spheres_control : MonoBehaviour {
 	}
 	void FixedUpdate()
 	{
-		rb.AddForce (Random.onUnitSphere*100); 
-		rb.AddTorque (1,10,1);
-		if (Vector3.Distance (transform.position, player_sp.transform.position) > 500)
-			transform.position = player_sp.transform.position + Random.onUnitSphere * 250;
+		rb.AddForce (Random.onUnitSphere*scenes_intermediate.getScoreBest()*0.5f); 
+		rb.AddTorque (30,200,30);
+		if (Vector3.Distance (transform.position, player_sp.transform.position) > 700)
+			transform.position = (player_sp.transform.position + Random.insideUnitSphere*700);
 
 	}
 

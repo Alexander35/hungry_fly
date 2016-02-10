@@ -45,16 +45,15 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\UIBars\Scripts\ControlBar.cs" />
-     <Compile Include="Assets\UIBars\Scripts\CriteriaRule.cs" />
-     <Compile Include="Assets\UIBars\Scripts\UIBarScript.cs" />
-     <Compile Include="Assets\UIBars\Scripts\UpdateAnimationRule.cs" />
      <Compile Include="Assets\scripts\Sharing_script.cs" />
      <Compile Include="Assets\scripts\add_life_text_control.cs" />
      <Compile Include="Assets\scripts\ambient_light.cs" />
      <Compile Include="Assets\scripts\camera_control.cs" />
+     <Compile Include="Assets\scripts\destination_1_control.cs" />
      <Compile Include="Assets\scripts\destination_control.cs" />
+     <Compile Include="Assets\scripts\destination_minus_1_control.cs" />
      <Compile Include="Assets\scripts\destination_minus_control.cs" />
+     <Compile Include="Assets\scripts\destination_plus_1_control.cs" />
      <Compile Include="Assets\scripts\destination_plus_control.cs" />
      <Compile Include="Assets\scripts\light_controll.cs" />
      <Compile Include="Assets\scripts\main_menu_control.cs" />
@@ -62,8 +61,22 @@
      <Compile Include="Assets\scripts\onStart.cs" />
      <Compile Include="Assets\scripts\save_record.cs" />
      <Compile Include="Assets\scripts\scenes_intermediate.cs" />
+     <Compile Include="Assets\scripts\wild_spheres_1_control.cs" />
      <Compile Include="Assets\scripts\wild_spheres_control.cs" />
+     <None Include="Assets\Packs\Discovery\Discovery_ReadMe.txt" />
+     <None Include="Assets\Packs\Zero Gravity\Zero Gravity_ReadMe.txt" />
+     <None Include="Assets\RPG Battle Music\readme.txt" />
+     <None Include="Assets\Free Pack\Metal Loop Pack\readme Unity.txt" />
+     <None Include="Assets\Free Pack\Door SFX Pack\Readme.txt" />
+     <None Include="Assets\Packs\Mano A Mano\Mano_A_Mano_ReadMe.txt" />
      <None Include="Assets\scene\Fonts\Jupiter\LICENSE.txt" />
+     <None Include="Assets\8 Bit Retro Rampage Free\Readme.txt" />
+     <None Include="Assets\Free Pack\Rock Loops Pack\Unity Readme.txt" />
+     <None Include="Assets\Packs\This Is Now\This_Is_Now_ReadMe.txt" />
+     <None Include="Assets\Packs\Into the Fire\Into_the_Fire_ReadMe.txt" />
+     <None Include="Assets\Free Pack\Rock Stingers Pack\Unity Readme.txt" />
+     <None Include="Assets\FootstepsSoundsCarpetPack\FootstepsSoundsCarpetPackInfo.txt" />
+     <None Include="Assets\Free Pack\Readme.txt" />
  <Reference Include="UnityEngine.Advertisements">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
  </Reference>
