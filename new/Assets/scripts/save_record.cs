@@ -42,8 +42,8 @@ public class save_record : MonoBehaviour {
 		}
 		else
 		{
-			writeStringToFile("0\n15\n25\n1\n0",filename);
-			return "0\n15\n25\n1\n0";
+			writeStringToFile("0\n1\n0.7\n0",filename);
+			return "0\n1\n0.7\n0";
 		}
 		#else
 		return null;
@@ -81,27 +81,24 @@ public class save_record : MonoBehaviour {
 		string[] substrings = Str.Split(delimiter);
 		int score = 0;
 		int.TryParse( substrings[0],out score);
-		scenes_intermediate.setScoreBest (score);
+		scenes_intermediate.ScoreBest= score;
 		float cs = 0;
 		float.TryParse (substrings[1],out cs);
-		scenes_intermediate.setConSens (cs);
-		float.TryParse (substrings[2],out cs);
-		scenes_intermediate.setConSensAngle (cs);
+		scenes_intermediate.ConSens= cs;
 		float sound = 1f;
-		float.TryParse (substrings[3],out sound);
-		scenes_intermediate.setSound (sound);
+		float.TryParse (substrings[2],out sound);
+		scenes_intermediate.Sound =sound;
 		int lang = 0;
-		int.TryParse (substrings [4], out lang);
-		scenes_intermediate.setLang (lang);
+		int.TryParse (substrings [3], out lang);
+		scenes_intermediate.Lang= lang;
 	}
 
 	public static void Save()
 	{
-			writeStringToFile (scenes_intermediate.getScoreBest().ToString()+
-		                   		"\n"+scenes_intermediate.getConSens().ToString()+
-		                  			 "\n"+scenes_intermediate.getConSensAngle().ToString()+
-		                   				"\n"+scenes_intermediate.getSound().ToString()+
-		                   					"\n"+scenes_intermediate.getLang().ToString(),
+			writeStringToFile (scenes_intermediate.ScoreBest.ToString()+
+		                   		"\n"+scenes_intermediate.ConSens.ToString()+
+		                   				"\n"+scenes_intermediate.Sound.ToString()+
+		                   					"\n"+scenes_intermediate.Lang.ToString(),
 		                   						fileName);
 	}
 }

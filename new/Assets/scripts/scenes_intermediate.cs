@@ -7,19 +7,20 @@ public class scenes_intermediate : MonoBehaviour
 	static float score=0f;
 	static float scorebest=0f;
 	static float control_sensetivity=0.35f;
-	static float control_angle_sensetivity=25f;
 	static float sound=1;
 	static int language=0;
 
 
-	public static int getMilk()
+	public static int Milk
 	{
-		return milk;
-	}
-	
-	public static void setMilk(int val)
-	{
-		milk = val;
+		get
+		{
+			return milk;
+		}
+		set
+		{
+			milk=value;
+		}
 	}
 
 	public static void incMilk()
@@ -34,66 +35,54 @@ public class scenes_intermediate : MonoBehaviour
 			milk = 0;
 	}
 
-	public static float getScoreBest()
+	public static float ScoreBest
 	{
-		return scorebest;
+		get{
+			return scorebest;
+		}
+		set{
+			scorebest=value;
+		}
+	}
+
+	public static float Score
+	{
+		get{
+			return score;
+		}
+		set{
+			score=value;
+		}
+	}
+
+	public static float ConSens
+	{
+		get{
+			return control_sensetivity;
+		}
+		set{
+			control_sensetivity=value;
+		}
 	}
 	
-	public static void setScoreBest(float val)
+	public static float Sound
 	{
-		scorebest = val;
+		get{
+			return sound;
+		}
+		set{
+			sound=value;
+		}
 	}
 
-	public static float getScore()
+	public static int Lang
 	{
-		return score;
+		get{
+			return language;
+		}
+		set{
+			language=value;
+		}
 	}
-
-	public static void setScore(float val)
-	{
-			score = val;
-
-	}
-
-	public static float getConSensAngle()
-	{
-		return control_angle_sensetivity;
-	}
-	
-	public static void setConSensAngle(float val)
-	{
-		control_angle_sensetivity = val;
-	}
-
-	public static float getConSens()
-	{
-		return control_sensetivity;
-	}
-
-	public static void setConSens(float val)
-	{
-		control_sensetivity = val;
-	}
-
-	public static float getSound()
-	{
-		return sound;
-	}
-	
-	public static void setSound(float val)
-	{
-		sound = val;
-	}
-
-	public static int getLang()
-	{
-		return language;
-	}
-	
-	public static void setLang(int val)
-	{
-		language = val;
-	}
-
 }
 

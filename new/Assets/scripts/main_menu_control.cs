@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 
-public class main_menu_control : MonoBehaviour {
+public class main_menu_control : audio_control {
 
 	public GUISkin custom;
 	bool about_menu = false;
@@ -13,6 +13,8 @@ public class main_menu_control : MonoBehaviour {
 		custom.button.fontSize = Screen.height / 10;
 		custom.label.fontSize = Screen.height / 15;
 		custom.box.fontSize = Screen.height / 7;
+		Sound_Init ();
+		save_record.Read ();
 	}
 	
 	void OnGUI()
@@ -22,9 +24,10 @@ public class main_menu_control : MonoBehaviour {
 			GUI.Box (new Rect (Screen.width * 0.00f, Screen.height * 0.05f,
 		                   	Screen.width * 1f, Screen.height * 0.9f), "Hungry Fly Game");
 
-			if (GUI.Button (new Rect (Screen.width * 0.25f, Screen.height * 0.2f,
+			if (GUI.Button (new Rect (Screen.width * 0.25f, Screen.height * 0.3f,
 			                          Screen.width * 0.5f, Screen.height * 0.1f),
 		                	"Game")) {
+				Sound_Play(0);
 				Application.LoadLevel (1);
 			}
 
@@ -37,6 +40,7 @@ public class main_menu_control : MonoBehaviour {
 			}
 			if (GUI.Button (new Rect (Screen.width * 0.25f, Screen.height * 0.85f,
 		                          		Screen.width * 0.5f, Screen.height * 0.1f), "?")) {
+				Sound_Play(0);
 				about_menu = !about_menu;
 			}
 	}

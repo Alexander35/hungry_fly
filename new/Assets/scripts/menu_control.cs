@@ -2,19 +2,20 @@
 using System.Collections;
 
 
-public class menu_control : MonoBehaviour {
+public class menu_control : audio_control {
 
 	public GUISkin custom;
 	int Scorecurrent=0;
 	int Scorebest=0;
 	void Start()
 	{
-		Scorecurrent = Mathf.RoundToInt( scenes_intermediate.getScore ());
-		Scorebest=Mathf.RoundToInt( scenes_intermediate.getScoreBest ());
+		Sound_Init ();
+		Scorecurrent = Mathf.RoundToInt( scenes_intermediate.Score);
+		Scorebest=Mathf.RoundToInt( scenes_intermediate.ScoreBest);
 		if (Scorecurrent > Scorebest) {
 			Scorebest=Scorecurrent;
-			scenes_intermediate.setScore(Scorecurrent);
-			scenes_intermediate.setScoreBest(Scorecurrent);
+			scenes_intermediate.Score=Scorecurrent;
+			scenes_intermediate.ScoreBest=Scorecurrent;
 			save_record.Save();
 		}
 		custom.button.fontSize = Screen.height / 10;
@@ -38,6 +39,7 @@ public class menu_control : MonoBehaviour {
 					"Hey, i am gain the new record in  the HUNGRY FLY GAME: "+Scorebest
 						+" can you do it better?"
 				);
+				Sound_Play(0);
 
 			}
 			GUI.color = current_color;
@@ -47,10 +49,12 @@ public class menu_control : MonoBehaviour {
 		                         	 Screen.width * 0.99f, Screen.height * 0.3f),
 		                			" You Score: " + Scorecurrent
 									+"\nBest Score: " + Scorebest)) {
+				Sound_Play(0);
 				Sharing_script.shareText (
 					"What's up! I am playing in the HUNGRY FLY GAME and this time i am get "
 						+Scorecurrent+" score points"
 				);
+
 			}
 
 		}
@@ -59,10 +63,12 @@ public class menu_control : MonoBehaviour {
 
 		if (GUI.Button (new Rect (Screen.width * 0.25f, Screen.height * 0.7f,
 		                          Screen.width * 0.5f, Screen.height * 0.1f), "Rate me!")) {
+			Sound_Play(0);
 			Application.OpenURL ("THISISWWW");
 		}
 		if (GUI.Button (new Rect (Screen.width * 0.25f, Screen.height * 0.85f,
 		                          Screen.width * 0.5f, Screen.height * 0.1f), "Play Again?")) {
+			Sound_Play(0);
 			Application.LoadLevel (1);
 		}
 	}

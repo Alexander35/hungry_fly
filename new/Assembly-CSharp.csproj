@@ -48,6 +48,7 @@
      <Compile Include="Assets\scripts\Sharing_script.cs" />
      <Compile Include="Assets\scripts\add_life_text_control.cs" />
      <Compile Include="Assets\scripts\ambient_light.cs" />
+     <Compile Include="Assets\scripts\audio_control.cs" />
      <Compile Include="Assets\scripts\camera_control.cs" />
      <Compile Include="Assets\scripts\destination_1_control.cs" />
      <Compile Include="Assets\scripts\destination_control.cs" />

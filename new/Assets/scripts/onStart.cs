@@ -4,7 +4,7 @@ using System.IO;
 using UnityEngine.UI;
 using UnityEngine.Advertisements;
 
-public class onStart : MonoBehaviour {
+public class onStart : audio_control {
 	public Text score_text; 
 	public Text life_text; 
 	float score=0f;
@@ -16,9 +16,42 @@ public class onStart : MonoBehaviour {
 	public Transform destination_minus;
 	public Transform[] dest_1;
 
-	AudioSource audio;
-	public AudioClip pick_up_sound;
-	public AudioClip time_sound;
+	public float Score
+	{
+		set{
+			score=value;
+		}
+		get{
+			return score;
+		}
+	}
+
+	public float Time_
+	{
+		set{
+			time=value;
+		}
+		get{
+			return time;
+		}
+	}
+
+	public float ScoreBest
+	{
+		set
+		{
+			scorebest=value;
+		}
+		get{
+			return scorebest;
+		}
+	}
+
+	void OnCollisionEnter (Collision other ) {
+		if (other.gameObject.CompareTag ("wild_sphere") || other.gameObject.CompareTag("wild_sphere_1")) {
+			Vibrate ();
+		}
+	}
 
 	public void ShowAd()
 	{
@@ -30,62 +63,29 @@ public class onStart : MonoBehaviour {
 
 	void die_menu()
 	{
-		scenes_intermediate.setScore (score);
-		scenes_intermediate.setMilk (0);
+		scenes_intermediate.Score=score;
+		scenes_intermediate.Milk=0;
 		if(Mathf.RoundToInt(score)%4==0)
 			ShowAd ();
 		Application.LoadLevel (2);
 	}
 
-	void decrease_time()
+	public void decrease_time()
 	{
 		time -= Time.deltaTime;
 		score += Time.deltaTime;
 		GetComponent<add_life_text_control> ().Set_Text(time,score);
 
-		if(time < 10 && scenes_intermediate.getSound() >0)
-			audio.PlayOneShot (time_sound,1f);
-
+		if (time < 10)
+			Sound_Play (1);
 		if (time <= 0)
 			die_menu ();
 	}
 
 	public  void instant(Vector3 pos)
 	{
-		int rand =  Mathf.RoundToInt(((score+scorebest+time)/10) % 3);
-		Instantiate (dest_1[rand], pos+Random.insideUnitSphere*50, Random.rotation);
-	}
+		int rand = Random.Range (0,3);//Mathf.RoundToInt((score+scorebest+time) % 3);
 
-	//add wild_spheres on scene when levelUP
-	public void level_up(float time_plus,float speed_plus,float k)
-	{
-		for (float i = 1; i <= k; i += 1) {
-			Instantiate (wild_sphere, Random.insideUnitSphere * 400 + transform.position, Random.rotation);
-			Instantiate (destination, Random.insideUnitSphere * 400 + transform.position, Random.rotation);
-			Instantiate (destination_plus, Random.insideUnitSphere * 400 + transform.position, Random.rotation);
-			Instantiate (destination_minus, Random.insideUnitSphere *400 + transform.position, Random.rotation);
-		}
-		if (scenes_intermediate.getSound ()>0) {
-			audio.PlayOneShot (pick_up_sound, 1f);
-		}
-		time_plus -= score / 60;
-		time += time_plus;
-		this.GetComponent<camera_control> ().IncreaseSpeed (speed_plus); 
-		add_life_text_control.run ( "Time  "+ Mathf.RoundToInt( time_plus).ToString());
-
-	}
-
-	void Awake () {	
-		save_record.Read ();
-		audio = gameObject.GetComponent<AudioSource> ();
-		scenes_intermediate.setMilk (1);
-		scorebest = scenes_intermediate.getScoreBest ();
-		level_up (scorebest/100 + 40,scorebest/100,30);
-		decrease_time ();
-	}
-
-	void Update () {
-		decrease_time ();
-	}
-
+		Instantiate (dest_1[rand], pos+Vector3.one*50, Random.rotation);
+	}	
 }
